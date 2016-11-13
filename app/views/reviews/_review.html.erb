@@ -1,0 +1,11 @@
+<%= review.body %>
+<%= link_to "Delete", [@product, review], remote: true, method: :delete, data: {confirm: "Are you sure?"} %>
+
+<% user_like = review.like_for current_user %>
+
+<% if user_like.present? %>
+  <%= link_to "unlike", product_review_like_path(@product, review, user_like), method: :delete %>
+<% else %>
+  <%= link_to "like", product_review_likes_path(@product, review), method: :post %>
+<% end %>
+<hr>

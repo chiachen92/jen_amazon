@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>JenAmazon</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+
+  <style>
+  nav {
+    float: right;
+    padding: 10px;
+    background-color: yellow;
+    width: 100%;
+  }
+  #nav-bar{
+    float: right;
+
+  }
+  </style>
+
+
+</head>
+  <body>
+    <nav>
+
+    <div id="nav-bar">
+      <%= form_tag products_path, :method => 'get' do %>
+    <p>
+        <%= text_field_tag :keyword, params[:keyword] %>
+        <%= submit_tag "Search", :name => nil %>
+    </p>
+    <% end %>
+      <!--<a href="/">Home</a>  -->
+    <%= link_to 'Home', home_path %>
+    <%= link_to 'About', about_path %>
+    <%= link_to 'Contact', contact_path %>
+    <%= link_to 'New Product', new_product_path %>
+    <%= link_to 'All Products', products_path %>
+    <%= link_to 'New User', new_user_path %>
+
+      <% if user_signed_in? %>
+        Hello <%= current_user.first_name %>
+        <%= link_to 'Sign out', sessions_path, method: :delete %>
+      <% else %>
+        <%= link_to 'Sign up', new_user_path %>
+        <%= link_to 'Sign In', new_session_path %>
+      <% end %>
+
+
+    <!-- 'Product' is what's showing up in the nav bar -->
+  </div>
+</nav>
+<hr>
+  <%= notice || alert %>
+
+    <%= yield %>
+  </body>
+</html>

@@ -1,0 +1,20 @@
+<h1>Contact Us</h1>
+<%= form_tag contact_submit_path do  %>
+<!-- need to submit the form, POST somewhere so contact_submit_path -->
+
+  <div>
+    <%= label_tag :full_name %>
+    <%= text_field_tag :full_name %>
+  </div>
+  <div>
+    <%= label_tag :email %>
+    <%= email_field_tag :email %>
+  </div>
+  <div>
+    <%= label_tag :message %>
+    <%= text_area_tag :message %>
+    <%#= not sure about these attributes:  <%= text_area_tag(:message, content = nil, options = {}) %>
+    <!-- how to make message can't be nil -->
+  </div>
+  <%= submit_tag "Contact Us!" %>
+  <% end %>

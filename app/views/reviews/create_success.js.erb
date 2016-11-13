@@ -1,0 +1,5 @@
+$("#reviews").prepend("<%= j(render('/reviews/review', {review: @review})) %>");
+<%#= render the partial review in reviews folder  %>
+<% @review = Review.new %>
+<%#= this form needs an empty object to pass into  %>
+$('#review-form').html('<%= j render 'form' %>');

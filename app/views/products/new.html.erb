@@ -1,0 +1,42 @@
+<!-- need to do db:migrate to migrate the model Products so we have a products database to make new instance of product -->
+<h1>New Product</h1>
+
+
+<%= @product.errors.full_messages.join(", ")%>
+
+<%= form_for  @product do |f| %>
+
+  <div>
+
+    <%=f.label :title %>
+    <%=f.text_field :title %>
+  </div>
+  <div>
+    <%=f.label :description %>
+    <%=f.text_area :description %>
+  </div>
+  <div>
+    <%=f.label :price %>
+    <%=f.text_field :price %>
+  </div>
+
+  <div>
+    <%= f.label :category_id %>
+    <%= f.collection_select :category_id, Category.all, :id, :name %>
+  </div>
+
+  <div>
+    <%= f.collection_select(
+      :tag_ids, Tag.all, :id, :name, {},
+      { multiple: true, class: 'chosen-select' }
+    ) %>
+  </div>
+
+  <%= f.submit :"Make New Product" %>
+  <!--f.submit rails default: Create Product   -->
+  <!-- okay now where is it submitting to need a post: Create -->
+<% end %>
+
+<script>
+$('.chosen-select').chosen({width: '200px'})
+</script>

@@ -1,0 +1,19 @@
+<%= @review.errors.full_messages.join(", ") %>
+
+
+<h1>Write a review</h1>
+<%= form_for [@product, @review], remote: true do |f| %>
+<%#=form_for @product and @review controller???%>
+<div>
+  <%= f.text_area :body %>
+  <div>
+    <%= f.select(:star_count, options_for_select([["⭐️ 1 Star", 1],["⭐️2 Stars", 2], ["⭐️3 Stars", 3], ["⭐️4 Stars", 4], ["⭐️5 Stars", 5]])) %>
+  <!-- <%= f.radio_button :star_count, 1 %>1
+  <%= f.radio_button :star_count, 2 %>2
+  <%= f.radio_button :star_count, 3 %>3
+  <%= f.radio_button :star_count, 4 %>4
+  <%= f.radio_button :star_count, 5 %>5 -->
+  </div>
+  <p><%= f.submit %></p>
+  <% end %>
+</div>

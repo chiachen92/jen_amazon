@@ -1,0 +1,20 @@
+<%#=now I want to list the products  %>
+<h1>All Products</h1>
+<%#= iterate through the collection of products and display the title for each  %>
+
+<%#= why can't i just do :<%= @product.title link in show.html, the only difference is I can click on the link and it should the display info about that specific product with the attributes like in show page. SHow page displays the products details%>
+
+<% @products.each do |product| %>
+<h2><%= link_to product.title, product_path(product)  %></h2>
+<hr>
+<%end%>
+
+<%#= !!!!!!link_to product.title, products!!!!!_path(product) this will link to the index page, but we want it so that when we click a list of products it goes show page displaying details/info about that products  >
+
+<%#=linking it to the index path: products_path and giving it a product id%>
+
+<%#=#<Product:0x007febfa7a5268 is what the index page looks like right now...listing all the products like: #<Product:0x007febfa7a5268> how do i fix this?: left the link_to product, blank, need to put product.title!!!!!![link_to product.title, products_path(product)] which is the index path>
+
+<%#=going to link to in applications.html.erb an All product button for index  %>
+
+<%#= now I am going to implement delete and edit button fo.  %>

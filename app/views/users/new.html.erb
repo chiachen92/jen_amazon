@@ -1,0 +1,28 @@
+<%#=form_tag is best for when you don't have to deal with objects  %>
+
+<h1>Sign Up</h1>
+
+<%= form_for @user do |f| %>
+<div>
+  <%= f.label :first_name %>
+  <%= f.text_field :first_name %>
+</div>
+
+<dvi>
+  <%= f.label :last_name %>
+  <%= f.text_field :last_name %>
+</dvi>
+<div>
+   <%= f.label :email %>
+   <%= f.email_field :email %>
+</div>
+<div>
+   <%= f.label :password %>
+   <%= f.password_field :password %>
+</div>
+<div>
+   <%= f.label :password_confirmation %>
+   <%= f.password_field :password_confirmation %>
+</div>
+<%= f.submit %>
+<% end %>
